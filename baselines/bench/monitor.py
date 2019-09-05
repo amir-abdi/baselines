@@ -1,14 +1,11 @@
 __all__ = ['Monitor', 'get_monitor_files', 'load_results']
 
-import csv
-import json
-import os.path as osp
+from gym.core import Wrapper
 import time
 from glob import glob
-
-import gym
-from gym.core import Wrapper
-
+import csv
+import os.path as osp
+import json
 
 class Monitor(Wrapper):
     EXT = "monitor.csv"
@@ -165,6 +162,7 @@ def load_results(dir):
     df['t'] -= min(header['t_start'] for header in headers)
     df.headers = headers  # HACK to preserve backwards compatibility
     return df
+<<<<<<< HEAD
 
 
 def test_monitor():
@@ -194,3 +192,5 @@ def test_monitor():
     assert set(last_logline.keys()) == {'l', 't', 'r'}, "Incorrect keys in monitor logline"
     f.close()
     os.remove(mon_file)
+=======
+>>>>>>> 229a772b81155695a2692066b1ef3e7b77f5993a
